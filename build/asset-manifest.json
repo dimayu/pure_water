@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/pet-project-movies/static/css/main.c077ffa7.css",
+    "main.js": "/pet-project-movies/static/js/main.79d3c120.js",
+    "index.html": "/pet-project-movies/index.html",
+    "main.c077ffa7.css.map": "/pet-project-movies/static/css/main.c077ffa7.css.map",
+    "main.79d3c120.js.map": "/pet-project-movies/static/js/main.79d3c120.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c077ffa7.css",
+    "static/js/main.79d3c120.js"
+  ]
+}
