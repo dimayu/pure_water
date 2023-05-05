@@ -1,13 +1,16 @@
-import { BrowserRouter } from "react-router-dom";
+import { ProductSelection, Promo, RequestForm, TimeDelivery, Total } from "../index";
 
 import './App.scss';
 
 export const App = () => {
     return (
         <div className="App">
-            <BrowserRouter>
-            
-            </BrowserRouter>
+          <Promo/>
+          <RequestForm/>
+          <ProductSelection/>
+          <TimeDelivery/>
+          <Total/>
+          <button className="btn">Заказать воду</button>
         </div>
     );
 };
