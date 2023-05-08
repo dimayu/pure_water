@@ -1,12 +1,14 @@
-import React from "react";
-import Slider from "react-slick";
+import { useState } from "react";
 
+import Slider from "react-slick";
 import { timesDelivery } from '../../Data/Data';
 import { arrWeek } from '../../Helpers/arrDate';
 
 import './TimeDelivery.scss';
 
 export const TimeDelivery = () => {
+  const initCheckDay = arrWeek[0].date + "," + arrWeek[0].check;
+  const [checkDay, setCheckDay] = useState(`${initCheckDay}`)
   const settings = {
     dots: false,
     infinite: false,
@@ -15,6 +17,14 @@ export const TimeDelivery = () => {
     slidesToScroll: 1,
     variableWidth: true
   };
+  
+  const changeDay = (event) => {
+    setCheckDay(event.target.value);
+  };
+  
+  const isHoliday = (checkDay.split(',')[1]) === 'weekend';
+  
+  const arrTimeDelivery = isHoliday ? timesDelivery[1].weekend : timesDelivery[0].weekdays;
   
   return (
     <div className="time-delivery">
@@ -27,6 +37,9 @@ export const TimeDelivery = () => {
                    name="date"
                    id={"" + index}
                    className="slider-days__item--input"
+                   value={item.date + "," + item.check}
+                   checked={checkDay === item.date + "," + item.check}
+                   onChange={changeDay}
             />
             <label htmlFor={"" + index}
                    className="slider-days__item--label"
@@ -45,7 +58,7 @@ export const TimeDelivery = () => {
       <h5 className="time-delivery__subtitle">Время</h5>
       <div className="time-delivery__items">
         {
-          timesDelivery[0].weekdays.map((item, index) =>
+          arrTimeDelivery.map((item, index) =>
             (<div
               key={index}
               className="time-delivery__items__item"

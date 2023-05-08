@@ -28,7 +28,7 @@ const getWeek = () => {
       
     } else {
       if (i > weekDay - 1) {
-        arrWeek.push({day: weeks[i], date: countMonthDay + i, check: weeks[i] === 'Cб' || weeks[i] === 'Вс' ? 'holiday' : 'weekday'});
+        arrWeek.push({day: weeks[i], date: countMonthDay + i, check: weeks[i] === 'Cб' || weeks[i] === 'Вс' ? 'weekend' : 'weekday'});
       }
     }
     
