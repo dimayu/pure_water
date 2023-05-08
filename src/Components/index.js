@@ -4,3 +4,4 @@ export * from './RequestForm';
 export * from './ProductSelection';
 export * from './TimeDelivery';
 export * from './Total';
+export * from './Counter';

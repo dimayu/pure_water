@@ -6,11 +6,15 @@ export const App = () => {
     return (
         <div className="App">
           <Promo/>
-          <RequestForm/>
-          <ProductSelection/>
-          <TimeDelivery/>
-          <Total/>
-          <button className="btn">Заказать воду</button>
+          <div className="form">
+            <RequestForm/>
+            <div className="products">
+              <ProductSelection/>
+              <TimeDelivery/>
+            </div>
+            <Total/>
+            <button className="btn">Заказать воду</button>
+          </div>
         </div>
     );
 };

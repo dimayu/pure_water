@@ -1,0 +1,29 @@
+@import "../../baseStyles/variables";
+
+.counter {
+  display: flex;
+  margin: 16px;
+
+  &__prev, &__next {
+    width: 16px;
+    height: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $yellow;
+    border-radius: 50%;
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
+
+    &:hover, &:focus {
+      color: $blue;
+    }
+  }
+
+  &__value {
+    margin: 0 10px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+}

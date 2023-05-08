@@ -1,20 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=Griffy&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 @import "../../baseStyles/variables";
-@import "../../baseStyles/reset";
-@import "../../baseStyles/smart-grid";
 
-.wrapper {
-  @include wrapper();
-}
-
-.App {
+.promo {
+  width: 33%;
+  align-self: center;
   display: flex;
   flex-direction: column;
-  height: 100%;
-  font-family: 'Montserrat', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.2;
-  color: #000;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+
+  &__img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background-color: #FAE1BE;
+    margin-bottom: 25px;
+  }
+
+  &__title {
+    margin-bottom: 40px;
+  }
+
+  &__description {
+    width: 50%;
+    text-align: center;
+    color: #818FB3;
+  }
 }

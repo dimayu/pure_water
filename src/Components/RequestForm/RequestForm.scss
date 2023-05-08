@@ -1,20 +1,76 @@
-@import url('https://fonts.googleapis.com/css2?family=Griffy&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 @import "../../baseStyles/variables";
-@import "../../baseStyles/reset";
-@import "../../baseStyles/smart-grid";
 
-.wrapper {
-  @include wrapper();
-}
+.request-form {
+  padding-bottom: 30px;
+  border-bottom: 1px dashed #D5DDE0;
 
-.App {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  font-family: 'Montserrat', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.2;
-  color: #000;
+  &__elements {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 10%;
+    margin-top: 34px;
+
+    &__input {
+      border: none;
+      border-bottom: 1px solid #D5DDE0;
+      background-color: transparent;
+      margin-bottom: 14px;
+      padding: 7px 0;
+      font-size: 12px;
+      outline: none;
+      transition: .2s ease-in-out;
+
+      &:focus {
+        width: 100%;
+        outline: none;
+        border-color: $blue;
+      }
+    }
+
+    &__checkbox-wrapper {
+      position: relative;
+
+      &--input {
+        position: absolute;
+        left: 0;
+        opacity: 0;
+
+        &:checked + label::before {
+          background-image: url('../../img/check.svg');
+          background-repeat: no-repeat;
+          background-size: contain;
+          background-position: center center;
+          background-color: $blue;
+        }
+      }
+
+      &--label {
+        position: relative;
+        padding-left: 24px;
+        cursor: pointer;
+        font-size: 12px;
+
+        a {
+          color: $blue;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+
+        &::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: -4px;
+          width: 16px;
+          height: 16px;
+          border: 1px solid $blue;
+          border-radius: 3px;
+          box-sizing: border-box;
+        }
+      }
+    }
+  }
 }
