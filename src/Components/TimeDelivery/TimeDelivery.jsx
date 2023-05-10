@@ -1,6 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 
 import Slider from "react-slick";
+
+import { choiceDate, choiceTime } from '../../Store/Slices/Order';
 import { timesDelivery } from '../../Data/Data';
 import { arrWeek } from '../../Helpers/arrDate';
 
@@ -8,7 +11,14 @@ import './TimeDelivery.scss';
 
 export const TimeDelivery = () => {
   const initCheckDay = arrWeek[0].date + "," + arrWeek[0].check;
-  const [checkDay, setCheckDay] = useState(`${initCheckDay}`)
+  const [checkDay, setCheckDay] = useState(initCheckDay);
+  const isHoliday = (checkDay.split(',')[1]) === 'weekend';
+  const arrTimeDelivery = isHoliday ? timesDelivery[1].weekend : timesDelivery[0].weekdays;
+  
+  const initTimeDelivery = arrTimeDelivery[0].start + '-' + arrTimeDelivery[0].end;
+  const [checkTime, setCheckTime] = useState(initTimeDelivery);
+  const dispatch = useDispatch();
+  
   const settings = {
     dots: false,
     infinite: false,
@@ -22,9 +32,14 @@ export const TimeDelivery = () => {
     setCheckDay(event.target.value);
   };
   
-  const isHoliday = (checkDay.split(',')[1]) === 'weekend';
+  const changeTime = (event) => {
+    setCheckTime(event.target.value);
+  }
   
-  const arrTimeDelivery = isHoliday ? timesDelivery[1].weekend : timesDelivery[0].weekdays;
+  useEffect(() => {
+    dispatch(choiceDate({checkDay}));
+    dispatch(choiceTime({checkTime}));
+  }, [checkDay, checkTime]);
   
   return (
     <div className="time-delivery">
@@ -65,6 +80,9 @@ export const TimeDelivery = () => {
             >
               <input type="radio"
                      name="time"
+                     value={item.start + "-" + item.end}
+                     checked={checkTime === item.start + "-" + item.end}
+                     onChange={changeTime}
                      id={`time-` + index}
                      className="time-delivery__items__item--input"
               />

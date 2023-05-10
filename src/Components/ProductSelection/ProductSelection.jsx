@@ -1,9 +1,34 @@
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+
 import { products } from '../../Data/Data';
 import { Counter } from '../Counter';
+import { choiceProductSize, choiceProductPrice } from '../../Store/Slices/Order';
 
 import './ProductSelection.scss';
 
 export const ProductSelection = () => {
+  const dispatch = useDispatch();
+  const [productChecked, setProductChecked] = useState(products.find(product => (product.checked === true)));
+  
+  const changeProduct = (event, id) => {
+    products.forEach((product) => product.id === id
+      ? product.checked = true
+      : product.checked = false);
+    setProductChecked(products.find(product => (product.checked === true)));
+  };
+  
+  const productSize = productChecked.size;
+  const productPrice = productChecked.price;
+  
+  console.log(productSize);
+  
+  
+  
+  useEffect(() => {
+    dispatch(choiceProductSize({productSize}));
+    dispatch(choiceProductPrice({productPrice}));
+  }, [productChecked]);
   
   return (
     <div className="product-selection">
@@ -13,6 +38,9 @@ export const ProductSelection = () => {
           <div className="product-selection__items__item" key={item.id}>
             <input type="radio"
                    id="radio-product"
+                   value={item.size}
+                   checked={item.checked}
+                   onChange={() => changeProduct(event, item.id)}
                    name="radio-product"
                    className="product-selection__items__item__input"
             />

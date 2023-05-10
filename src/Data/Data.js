@@ -4,18 +4,21 @@ export const products = [
     size: "18,9",
     price: 220,
     amount: 1,
+    checked: true
   },
   {
     id: 49387490,
     size: "1,5",
     price: 175,
     amount: 6,
+    checked: false
   },
   {
     id: 49387491,
     size: "0,5",
     price: 270,
     amount: 12,
+    checked: false
   },
 ];
 
