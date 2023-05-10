@@ -11,6 +11,7 @@ const orderSlice = createSlice({
       email: '',
       phone: '',
       address: '',
+      valid: true,
     },
     order: {
       productTitle: products[0].size,
@@ -50,6 +51,10 @@ const orderSlice = createSlice({
     userDataAddress(state, action) {
       state.user.address = action.payload.address;
     },
+    toggleValid(state, action) {
+      state.user.valid = action.payload.isValid;
+      console.log(action.payload.isValid);
+    }
   },
 });
 
@@ -59,5 +64,6 @@ export const {
   choiceProductSize, choiceProductPrice,
   calcSum, choiceDate, choiceTime,
   userDataName, userDataEmail,
-  userDataPhone, userDataAddress
+  userDataPhone, userDataAddress,
+  toggleValid,
 } = orderSlice.actions;

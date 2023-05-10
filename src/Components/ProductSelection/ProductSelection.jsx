@@ -21,10 +21,6 @@ export const ProductSelection = () => {
   const productSize = productChecked.size;
   const productPrice = productChecked.price;
   
-  console.log(productSize);
-  
-  
-  
   useEffect(() => {
     dispatch(choiceProductSize({productSize}));
     dispatch(choiceProductPrice({productPrice}));

@@ -43,6 +43,15 @@
   &:hover {
     background-color: $yellow;
   }
+
+  &:disabled {
+    opacity: .6;
+    cursor: not-allowed;
+
+    &:hover {
+      background-color: $blue;
+    }
+  }
 }
 
 .products {

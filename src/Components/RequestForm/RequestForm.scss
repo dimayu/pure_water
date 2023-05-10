@@ -11,20 +11,33 @@
     gap: 10%;
     margin-top: 34px;
 
-    &__input {
-      border: none;
-      border-bottom: 1px solid #D5DDE0;
-      background-color: transparent;
-      margin-bottom: 14px;
-      padding: 7px 0;
-      font-size: 12px;
-      outline: none;
-      transition: .2s ease-in-out;
+    &__input-wrapper {
+      position: relative;
 
-      &:focus {
+      &--input {
         width: 100%;
+        border: none;
+        border-bottom: 1px solid #D5DDE0;
+        background-color: transparent;
+        margin-bottom: 14px;
+        padding: 7px 0;
+        font-size: 12px;
         outline: none;
-        border-color: $blue;
+        transition: .2s ease-in-out;
+
+        &:focus {
+          width: 100%;
+          outline: none;
+          border-color: $blue;
+        }
+      }
+
+      &--error {
+        position: absolute;
+        top: -10px;
+        left: 0;
+        font-size: 12px;
+        color: red;
       }
     }
 
