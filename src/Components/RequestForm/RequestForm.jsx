@@ -6,7 +6,7 @@ import { userDataName, userDataEmail, userDataPhone, userDataAddress, toggleVali
 
 import './RequestForm.scss';
 
-export const RequestForm = () => {
+export const RequestForm = ({className}) => {
   const [check, setCheck] = useState(false);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -92,7 +92,7 @@ export const RequestForm = () => {
   }, [name, email, phone, address, nameDirty, emailDirty, phoneDirty, addressDirty, check, nameError, emailError, phoneError, addressError]);
   
   return (
-    <div className="request-form">
+    <div className={`request-form ${className}`}>
       <h3 className="request-form__title title">Заполните данные</h3>
       <div className="request-form__elements">
         <div className="request-form__elements__input-wrapper">
@@ -103,7 +103,7 @@ export const RequestForm = () => {
                  onChange={changeName}
                  onBlur={blurHandler}
                  className="request-form__elements__input-wrapper--input"
-                 placeholder="Ваше имя"
+                 placeholder="ФИО"
           />
         </div>
         <div className="request-form__elements__input-wrapper">
@@ -125,7 +125,7 @@ export const RequestForm = () => {
                  onChange={changePhone}
                  onBlur={blurHandler}
                  className="request-form__elements__input-wrapper--input"
-                 placeholder="Ваш телефон"
+                 placeholder="Телефон"
           />
         </div>
         <div className="request-form__elements__input-wrapper">
@@ -136,7 +136,7 @@ export const RequestForm = () => {
                  onChange={changeAddress}
                  onBlur={blurHandler}
                  className="request-form__elements__input-wrapper--input"
-                 placeholder="Ваш адрес"
+                 placeholder="Адрес доставки"
           />
         </div>
         <div className="request-form__elements__checkbox-wrapper">

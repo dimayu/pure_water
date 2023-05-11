@@ -1,9 +1,14 @@
+@import "../../baseStyles/smart-grid";
 @import "../../baseStyles/variables";
 
 .checkout__title {
   display: flex;
   align-items: center;
   margin-bottom: 40px;
+
+  @include xs-block() {
+    margin-bottom: 20px;
+  }
 
   &--img {
     width: 30px;

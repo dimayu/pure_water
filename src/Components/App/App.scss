@@ -2,9 +2,11 @@
 @import "../../baseStyles/reset";
 @import "../../baseStyles/smart-grid";
 
+.wrapper {
+  @include wrapper();
+}
+
 .App {
-  display: flex;
-  align-items: center;
   font-family: 'Cera Pro', sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -12,6 +14,21 @@
   line-height: 1.48;
   color: $color-font;
   background-color: #E9EFFC;
+
+  @include xs-block() {
+    background-color: #F5F8FF
+  }
+}
+
+.wrapper-checkout {
+  display: flex;
+  align-items: baseline;
+
+  @include md-block() {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .form {
@@ -21,11 +38,40 @@
   background-color: #F5F8FF;
   border-radius: 6px;
   box-sizing: border-box;
+
+  @include lm-block() {
+    width: 70%;
+  }
+
+  @include md-block() {
+    width: 90%;
+    padding: 20px 30px;
+  }
+
+  @include xs-block() {
+    display: none;
+    width: 100%;
+
+    &.checkout {
+      display: block;
+    }
+  }
+  
+  &-mobile--active {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 30px 20px;
+  }
 }
 
 .title {
   font-weight: 700;
   font-size: 22px;
+
+  @include xs-block() {
+    font-size: 18px;
+  }
 }
 
 .subtitle {
@@ -52,6 +98,43 @@
       background-color: $blue;
     }
   }
+
+  &-mobile {
+    display: none;
+
+    @include xs-block() {
+      display: block;
+      margin: 30px auto 0;
+    }
+  }
+
+  &-order {
+    @include xs-block() {
+      display: none;
+      margin: auto;
+    }
+  }
+
+  &--inactive {
+    display: none;
+  }
+
+  &--active {
+    display: block;
+  }
+
+  &--prev {
+    margin: 0 0 30px 0;
+  }
+
+  @include xs-block() {
+    &--new-order {
+      width: 70%;
+      box-sizing: border-box;
+      position: relative;
+      left: 15%;
+    }
+  }
 }
 
 .products {
@@ -62,7 +145,59 @@
   padding-bottom: 10px;
   border-bottom: 1px dashed #D5DDE0;
 
+  @include md-block() {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 30px;
+  }
+
+  @include xs-block() {
+    display: none;
+  }
+  
+  &--active {
+    display: block;
+    position: relative;
+    animation: showRight 2s;
+    margin-top: 0;
+  }
+
   .subtitle {
     margin-bottom: 16px;
+  }
+}
+
+.page {
+  .title {
+    margin: 20px 0;
+    text-align: center;
+  }
+}
+
+.checkout {
+  position: relative;
+  animation: showRight 2s;
+
+  @include xs-block() {
+    margin: 0;
+  }
+}
+
+.form-error {
+  display: none;
+
+  @include xs-block() {
+    display: block;
+    color: red;
+  }
+}
+
+@keyframes showRight {
+  from {
+    right: -100%;
+  }
+  to {
+    right: 0;
   }
 }

@@ -1,7 +1,12 @@
+@import "../../baseStyles/smart-grid";
 @import "../../baseStyles/variables";
 
 .time-delivery {
   width: 45%;
+
+  @include md-block() {
+    width: 100%;
+  }
 
   &__items {
     display: flex;

@@ -1,4 +1,5 @@
 @import "../../baseStyles/variables";
+@import "../../baseStyles/smart-grid";
 
 .checkout__description {
   margin-bottom: 30px;
@@ -10,5 +11,9 @@
     &:hover {
       text-decoration: underline;
     }
+  }
+
+  @include xs-block() {
+    text-align: center;
   }
 }

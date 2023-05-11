@@ -1,3 +1,4 @@
+@import "../../baseStyles/smart-grid";
 @import "../../baseStyles/variables";
 
 .total {
@@ -7,6 +8,10 @@
   border-bottom: 1px solid #D5DDE0;
   margin-bottom: 50px;
 
+  @include xs-block() {
+    display: none;
+  }
+
   &__price {
     font-size: 18px;
     font-weight: 500;
@@ -14,5 +19,20 @@
     span {
       color: #BABDC2;
     }
+  }
+
+  &--active {
+    display: flex;
+    position: relative;
+    animation: showLeft 2s;
+  }
+}
+
+@keyframes showLeft {
+  from {
+    left: -100%;
+  }
+  to {
+    left: 0;
   }
 }

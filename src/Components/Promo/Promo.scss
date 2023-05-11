@@ -1,3 +1,4 @@
+@import "../../baseStyles/smart-grid";
 @import "../../baseStyles/variables";
 
 .promo {
@@ -9,21 +10,81 @@
   align-items: center;
   box-sizing: border-box;
 
+  @include lm-block() {
+    width: 27%;
+  }
+
+  @include md-block() {
+    width: 80%;
+    margin-top: 60px;
+  }
+
   &__img {
+    position: relative;
     width: 130px;
     height: 130px;
     border-radius: 50%;
     background-color: #FAE1BE;
     margin-bottom: 25px;
+    animation: showLeft 2s;
   }
 
   &__title {
+    position: relative;
     margin-bottom: 40px;
+    animation: showRight 2s;
   }
 
   &__description {
+    position: relative;
     width: 50%;
     text-align: center;
     color: #818FB3;
+    animation: showOpacity 3s;
+  }
+
+  @include xs-block {
+    width: 100%;
+
+    &__title {
+      margin-bottom: 50px;
+      font-size: 24px;
+    }
+
+    &__description {
+      width: calc(100% - 40px);
+      margin-bottom: 48px;
+    }
+  }
+
+  &-mobile--inactive {
+    display: none;
+  }
+}
+
+@keyframes showLeft {
+  from {
+    left: -100%;
+  }
+  to {
+    left: 0;
+  }
+}
+
+@keyframes showRight {
+  from {
+    right: -100%;
+  }
+  to {
+    right: 0;
+  }
+}
+
+@keyframes showOpacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

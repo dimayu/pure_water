@@ -1,8 +1,13 @@
+@import "../../baseStyles/smart-grid";
 @import "../../baseStyles/variables";
 
 .request-form {
   padding-bottom: 30px;
   border-bottom: 1px dashed #D5DDE0;
+
+  @include xs-block() {
+    display: none;
+  }
 
   &__elements {
     display: grid;
@@ -85,5 +90,105 @@
         }
       }
     }
+  }
+
+  &--active {
+    display: block;
+    position: relative;
+    animation: showRight 2s;
+    padding-bottom: 0;
+    border-bottom: none;
+
+    .request-form__elements {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+      gap: 30px;
+      margin-top: 34px;
+
+      &__input-wrapper {
+        position: relative;
+
+        &--input {
+          width: 100%;
+          border: none;
+          border-bottom: 1px solid #D5DDE0;
+          background-color: transparent;
+          margin-bottom: 14px;
+          padding: 7px 0;
+          font-size: 12px;
+          outline: none;
+          transition: .2s ease-in-out;
+
+          &:focus {
+            width: 100%;
+            outline: none;
+            border-color: $blue;
+          }
+        }
+
+        &--error {
+          position: absolute;
+          top: -10px;
+          left: 0;
+          font-size: 12px;
+          color: red;
+        }
+      }
+
+      &__checkbox-wrapper {
+        position: relative;
+
+        &--input {
+          position: absolute;
+          left: 0;
+          opacity: 0;
+
+          &:checked + label::before {
+            background-image: url('../../img/check.svg');
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center center;
+            background-color: $blue;
+          }
+        }
+
+        &--label {
+          position: relative;
+          padding-left: 24px;
+          cursor: pointer;
+          font-size: 12px;
+
+          a {
+            color: $blue;
+
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+
+          &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: -2px;
+            width: 16px;
+            height: 16px;
+            border: 1px solid $blue;
+            border-radius: 3px;
+            box-sizing: border-box;
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes showRight {
+  from {
+    right: -100%;
+  }
+  to {
+    right: 0;
   }
 }

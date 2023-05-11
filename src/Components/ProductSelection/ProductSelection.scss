@@ -1,7 +1,12 @@
+@import "../../baseStyles/smart-grid";
 @import "../../baseStyles/variables";
 
 .product-selection {
   width: 55%;
+
+  @include md-block() {
+    width: 100%;
+  }
 
   &__items {
     display: grid;
