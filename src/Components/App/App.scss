@@ -4,13 +4,13 @@
 
 .App {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   font-family: 'Cera Pro', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 1.48;
-  color: #000;
+  color: $color-font;
   background-color: #E9EFFC;
 }
 

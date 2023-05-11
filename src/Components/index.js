@@ -5,3 +5,6 @@ export * from './ProductSelection';
 export * from './TimeDelivery';
 export * from './Total';
 export * from './Counter';
+export * from './CheckoutTitle';
+export * from './CheckoutOrder';
+export * from './CheckoutDescription';

@@ -16,6 +16,7 @@ const orderSlice = createSlice({
     order: {
       productTitle: products[0].size,
       productPrice: products[0].price,
+      productNumber: products[0].amount,
       dateDelivery: arrWeek[0].date + "," + arrWeek[0].check,
       timeDelivery: '',
       amount: 1,
@@ -28,6 +29,9 @@ const orderSlice = createSlice({
     },
     choiceProductPrice(state, action) {
       state.order.productPrice = action.payload.productPrice;
+    },
+    choiceProductNumber(state, action) {
+      state.order.productNumber = action.payload.productNumber;
     },
     calcSum(state, action) {
       state.order.total = state.order.productPrice * action.payload.count;
@@ -53,7 +57,6 @@ const orderSlice = createSlice({
     },
     toggleValid(state, action) {
       state.user.valid = action.payload.isValid;
-      console.log(action.payload.isValid);
     }
   },
 });
@@ -62,6 +65,7 @@ export default orderSlice.reducer;
 
 export const {
   choiceProductSize, choiceProductPrice,
+  choiceProductNumber,
   calcSum, choiceDate, choiceTime,
   userDataName, userDataEmail,
   userDataPhone, userDataAddress,

@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 
 import { products } from '../../Data/Data';
 import { Counter } from '../Counter';
-import { choiceProductSize, choiceProductPrice } from '../../Store/Slices/Order';
+import { choiceProductSize, choiceProductPrice, choiceProductNumber } from '../../Store/Slices/Order';
 
 import './ProductSelection.scss';
 
@@ -20,10 +20,12 @@ export const ProductSelection = () => {
   
   const productSize = productChecked.size;
   const productPrice = productChecked.price;
+  const productNumber = productChecked.amount;
   
   useEffect(() => {
     dispatch(choiceProductSize({productSize}));
     dispatch(choiceProductPrice({productPrice}));
+    dispatch(choiceProductNumber({productNumber}));
   }, [productChecked]);
   
   return (

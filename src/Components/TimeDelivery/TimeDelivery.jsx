@@ -10,9 +10,9 @@ import { arrWeek } from '../../Helpers/arrDate';
 import './TimeDelivery.scss';
 
 export const TimeDelivery = () => {
-  const initCheckDay = arrWeek[0].date + "," + arrWeek[0].check;
+  const initCheckDay = arrWeek[0].date + "," + arrWeek[0].month + "," + arrWeek[0].check;
   const [checkDay, setCheckDay] = useState(initCheckDay);
-  const isHoliday = (checkDay.split(',')[1]) === 'weekend';
+  const isHoliday = (checkDay.split(',')[2]) === 'weekend';
   const arrTimeDelivery = isHoliday ? timesDelivery[1].weekend : timesDelivery[0].weekdays;
   
   const initTimeDelivery = arrTimeDelivery[0].start + '-' + arrTimeDelivery[0].end;
@@ -52,8 +52,8 @@ export const TimeDelivery = () => {
                    name="date"
                    id={"" + index}
                    className="slider-days__item--input"
-                   value={item.date + "," + item.check}
-                   checked={checkDay === item.date + "," + item.check}
+                   value={item.date + "," + item.month + "," + item.check}
+                   checked={checkDay === item.date + "," + item.month + "," + item.check}
                    onChange={changeDay}
             />
             <label htmlFor={"" + index}

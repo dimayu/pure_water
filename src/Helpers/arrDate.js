@@ -2,6 +2,7 @@ const date = new Date();
 const weekDay = date.getDay();
 const monthDay = date.getDate();
 const month = date.getMonth();
+const fullMonth = date.toLocaleString('ru',{ month: "long" });
 
 export const arrWeek = [];
 
@@ -24,11 +25,21 @@ const getWeek = () => {
   for (let i = 0; i < 14; i++) {
     if ((countMonthDay + i) > countDayOnMonth[month] && i > weekDay - 1) {
       let count = countDayOnMonth[month] - (countMonthDay + (weeks.length - 1));
-      arrWeek.push({day: weeks[i], date: count + i});
+      arrWeek.push({
+        day: weeks[i],
+        date: count + i,
+        month: fullMonth,
+        check: weeks[i] === 'Cб' || weeks[i] === 'Вс' ? 'weekend' : 'weekday',
+      });
       
     } else {
       if (i > weekDay - 1) {
-        arrWeek.push({day: weeks[i], date: countMonthDay + i, check: weeks[i] === 'Cб' || weeks[i] === 'Вс' ? 'weekend' : 'weekday'});
+        arrWeek.push({
+          day: weeks[i],
+          date: countMonthDay + i,
+          month: fullMonth,
+          check: weeks[i] === 'Cб' || weeks[i] === 'Вс' ? 'weekend' : 'weekday',
+        });
       }
     }
     

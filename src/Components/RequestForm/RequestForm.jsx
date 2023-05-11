@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
+import { Link } from 'react-router-dom';
 
 import { userDataName, userDataEmail, userDataPhone, userDataAddress, toggleValid } from '../../Store/Slices/Order';
 
 import './RequestForm.scss';
 
 export const RequestForm = () => {
-  const [check, setCheck] = useState(true);
+  const [check, setCheck] = useState(false);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
@@ -146,7 +147,7 @@ export const RequestForm = () => {
                  className="request-form__elements__checkbox-wrapper--input"/>
           <label htmlFor="checkbox"
                  className="request-form__elements__checkbox-wrapper--label"
-          >Я согласен на <a href="#">обработку персональных данных</a></label>
+          >Я согласен на <Link to="confidentiality">обработку персональных данных</Link></label>
         </div>
       </div>
     </div>

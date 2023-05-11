@@ -1,0 +1,14 @@
+@import "../../baseStyles/variables";
+
+.checkout__description {
+  margin-bottom: 30px;
+  color: #818FB3;
+
+  a {
+    color: $blue;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
